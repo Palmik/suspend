@@ -1,3 +1,5 @@
+{-# LANGUAGE FlexibleContexts #-}
+
 module Control.Concurrent.Suspend.Lifted
 ( suspend
 
@@ -13,6 +15,7 @@ module Control.Concurrent.Suspend.Lifted
 ------------------------------------------------------------------------------
 import           Control.Concurrent.Lifted (threadDelay)
 import           Control.Monad             (when)
+import           Control.Monad.Base        (MonadBase)
 ------------------------------------------------------------------------------
 import           Control.Concurrent.Delay
 ------------------------------------------------------------------------------
@@ -23,7 +26,7 @@ import           Control.Concurrent.Delay
 --
 -- There is no guarantee that the thread will be rescheduled promptly when the
 -- delay has expired, but the thread will never continue to run earlier than specified.
-suspend :: Delay -> IO ()
+suspend :: MonadBase IO m => Delay -> m ()
 suspend (Delay us) = when (us > 0) $ do
     let wait = min us $ fromIntegral (maxBound :: Int)
     threadDelay (fromIntegral wait)
