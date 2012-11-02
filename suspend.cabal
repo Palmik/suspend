@@ -1,5 +1,5 @@
 name:                suspend
-version:             0.1.0.1
+version:             0.1.0.2
 synopsis:            Simple package that allows for long thread suspensions.
 description:         Simple package that allows for long thread suspensions. Uses newtype wrapper (of Int64 at the moment) to represent delay.
 license:             BSD3
@@ -26,7 +26,7 @@ library
 
     build-depends:
         base              >= 4.5 && < 4.7
-      , lifted-base       == 0.1.*
+      , lifted-base       >= 0.1 && < 0.3
       , transformers-base == 0.4.*
 
     hs-source-dirs:      src
