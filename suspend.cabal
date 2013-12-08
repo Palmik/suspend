@@ -1,5 +1,5 @@
 name:                suspend
-version:             0.1.0.2
+version:             0.2.0.0
 synopsis:            Simple package that allows for long thread suspensions.
 description:         Simple package that allows for long thread suspensions. Uses newtype wrapper (of Int64 at the moment) to represent delay.
 license:             BSD3
